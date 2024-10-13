@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes'; // For dark mode toggle
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu } from "lucide-react";
 import { Session } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabaseInstance';
 import { useRouter } from 'next/navigation';
@@ -46,7 +46,7 @@ const Navbar = () => {
             const { error } = await supabase.auth.signOut();
             if (error) throw error;
             setSession(null);
-            router.push('/login');
+            // router.push('/login');
         } catch (error) {
             console.error("Error logging out:", error);
         }

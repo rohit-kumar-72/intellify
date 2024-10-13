@@ -16,7 +16,7 @@ function Dashboard() {
     useEffect(() => {
         async function fetchProducts() {
 
-            let { data, error } = await supabase
+            const { data, error } = await supabase
                 .from('product')
                 .select('*')
 
@@ -38,7 +38,7 @@ function Dashboard() {
     useEffect(() => {
         async function fetchCategory() {
 
-            let { data, error } = await supabase
+            const { data, error } = await supabase
                 .from('category')
                 .select('*');
             if (!error && data) {
@@ -57,7 +57,7 @@ function Dashboard() {
     }, [])
 
 
-    const channels = supabase.channel('custom-all-channel')
+    supabase.channel('custom-all-channel')
         .on(
             'postgres_changes',
             { event: '*', schema: 'public', table: 'product' },

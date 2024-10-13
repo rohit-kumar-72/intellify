@@ -9,7 +9,7 @@ import { supabase } from "@/lib/supabaseInstance";
 import { useRouter } from "next/navigation";
 
 
-const page = () => {
+const Page = () => {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -32,9 +32,9 @@ const page = () => {
         async function getSession() {
             const { data: { session } } = await supabase.auth.getSession();
             console.log(session)
-            // if (session) {
-            //     router.push('/')
-            // }
+            if (session) {
+                router.push('/')
+            }
         }
         getSession();
     }, [])
@@ -125,4 +125,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { redirect, useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabaseInstance";
+import { Session } from "inspector/promises";
 
 
-const page = () => {
+const Page = () => {
 
     const router = useRouter();
 
@@ -137,4 +138,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;
